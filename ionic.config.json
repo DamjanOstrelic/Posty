@@ -1,0 +1,7 @@
+{
+  "name": "Posty",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
