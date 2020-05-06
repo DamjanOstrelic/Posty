@@ -10,7 +10,7 @@ import {
   IonIcon,
 } from "@ionic/react";
 import {
-  sendOutline,
+  newspaperOutline,
   trendingUpOutline,
   addCircleOutline,
   searchOutline,
@@ -63,7 +63,7 @@ const App = () => (
         {/*-- Tab bar --*/}
         <IonTabBar slot="bottom">
           <IonTabButton tab="posts" href="/posts">
-            <IonIcon icon={sendOutline}></IonIcon>
+            <IonIcon icon={newspaperOutline}></IonIcon>
             <IonLabel>Posts</IonLabel>
           </IonTabButton>
           <IonTabButton tab="trending" href="/trending">
