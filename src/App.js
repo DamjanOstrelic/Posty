@@ -23,10 +23,10 @@ import Trending from "./pages/Tabs/Trending";
 import Submit from "./pages/Tabs/Submit";
 import Search from "./pages/Tabs/Search";
 import Account from "./pages/Tabs/Account";
-import EditProfile from "./pages/EditProfile";
-import SignUp from "./pages/SignUp";
-import ForgotPassword from "./pages/ForgotPassword";
-import Login from "./pages/Login";
+import EditProfile from "./pages/Auth/EditProfile";
+import SignUp from "./pages/Auth/SignUp";
+import ForgotPassword from "./pages/Auth/ForgotPassword";
+import Login from "./pages/Auth/Login";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";

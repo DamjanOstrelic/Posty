@@ -9,16 +9,16 @@ import {
   IonCol,
   IonButton,
 } from "@ionic/react";
-import NavHeader from "../components/headers/NavHeader";
+import NavHeader from "../../components/headers/NavHeader";
 
 const SignUp = () => {
   return (
     <IonPage>
-      <NavHeader title="Sign Up" />
+      <NavHeader title="Sign Up"/>
       <IonContent>
         <IonItem>
           <IonLabel position="floating">Username</IonLabel>
-          <IonInput type="text" name="username" required />
+          <IonInput type="text" name="name" required />
         </IonItem>
         <IonItem>
           <IonLabel position="floating">Email</IonLabel>
