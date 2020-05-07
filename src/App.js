@@ -57,12 +57,16 @@ const App = () => (
             render={() => <Redirect to="/posts" />}
             exact={true}
           />
-          <Route path="/posts" component={Posts} />{" "}
+          <Route path="/posts" component={Posts} />
           {/*path means how it will appear in URL and component to which component it links to*/}
           <Route path="/trending" component={Trending} />
           <Route path="/submit" component={Submit} />
           <Route path="/search" component={Search} />
           <Route path="/account" component={Account} />
+          <Route path="/edit-profile" component={EditProfile} />
+          <Route path="/register" component={SignUp} />
+          <Route path="/reset-password" component={ForgotPassword} />
+          <Route path="/login" component={Login} />
           <Route component={() => <Redirect to="/posts" />} />
         </IonRouterOutlet>
         {/*-- Tab bar --*/}
