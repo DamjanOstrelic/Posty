@@ -10,9 +10,9 @@ import {
 const NavHeader = ({ title }) => {
   return (
     <IonHeader>
-      <IonToolbar>
-        <IonButtons>
-          <IonBackButton />
+      <IonToolbar color="primary">
+        <IonButtons slot="start">
+          <IonBackButton defaultHref="/" />
         </IonButtons>
         <IonTitle>{title}</IonTitle>
       </IonToolbar>

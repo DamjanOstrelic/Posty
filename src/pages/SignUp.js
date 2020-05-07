@@ -25,7 +25,7 @@ const SignUp = () => {
           <IonInput type="email" name="email" required />
         </IonItem>
         <IonItem>
-          <IonLabel position="floating">Username</IonLabel>
+          <IonLabel position="floating">Password</IonLabel>
           <IonInput type="password" name="password" required />
         </IonItem>
         <IonRow>
