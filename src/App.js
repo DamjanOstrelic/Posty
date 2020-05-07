@@ -27,6 +27,8 @@ import EditProfile from "./pages/Auth/EditProfile";
 import SignUp from "./pages/Auth/SignUp";
 import ForgotPassword from "./pages/Auth/ForgotPassword";
 import Login from "./pages/Auth/Login";
+import useAuth from "./hooks/useAuth";
+import userContext from "./contexts/userContext";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -46,55 +48,61 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import UserContext from "./contexts/userContext";
 
-const App = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route
-            path="/"
-            render={() => <Redirect to="/posts" />}
-            exact={true}
-          />
-          <Route path="/posts" component={Posts} />
-          {/*path means how it will appear in URL and component to which component it links to*/}
-          <Route path="/trending" component={Trending} />
-          <Route path="/submit" component={Submit} />
-          <Route path="/search" component={Search} />
-          <Route path="/account" component={Account} />
-          <Route path="/edit-profile" component={EditProfile} />
-          <Route path="/register" component={SignUp} />
-          <Route path="/reset-password" component={ForgotPassword} />
-          <Route path="/login" component={Login} />
-          <Route component={() => <Redirect to="/posts" />} />
-        </IonRouterOutlet>
-        {/*-- Tab bar --*/}
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="posts" href="/posts">
-            <IonIcon icon={newspaperOutline}></IonIcon>
-            <IonLabel>Posts</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="trending" href="/trending">
-            <IonIcon icon={trendingUpOutline}></IonIcon>
-            <IonLabel>Trending</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="submit" href="/submit">
-            <IonIcon icon={addCircleOutline}></IonIcon>
-            <IonLabel>Submit</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="search" href="/search">
-            <IonIcon icon={searchOutline}></IonIcon>
-            <IonLabel>Search</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="account" href="/account">
-            <IonIcon icon={personOutline}></IonIcon>
-            <IonLabel>Account</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+const App = () => {
+  const [user, setUser] = useAuth();
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <UserContext.Provider value={{ user, setUser }}>
+          <IonTabs>
+            <IonRouterOutlet>
+              <Route
+                path="/"
+                render={() => <Redirect to="/posts" />}
+                exact={true}
+              />
+              <Route path="/posts" component={Posts} />
+              {/*path means how it will appear in URL and component to which component it links to*/}
+              <Route path="/trending" component={Trending} />
+              <Route path="/submit" component={Submit} />
+              <Route path="/search" component={Search} />
+              <Route path="/account" component={Account} />
+              <Route path="/edit-profile" component={EditProfile} />
+              <Route path="/register" component={SignUp} />
+              <Route path="/reset-password" component={ForgotPassword} />
+              <Route path="/login" component={Login} />
+              <Route component={() => <Redirect to="/posts" />} />
+            </IonRouterOutlet>
+            {/*-- Tab bar --*/}
+            <IonTabBar slot="bottom">
+              <IonTabButton tab="posts" href="/posts">
+                <IonIcon icon={newspaperOutline}></IonIcon>
+                <IonLabel>Posts</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="trending" href="/trending">
+                <IonIcon icon={trendingUpOutline}></IonIcon>
+                <IonLabel>Trending</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="submit" href="/submit">
+                <IonIcon icon={addCircleOutline}></IonIcon>
+                <IonLabel>Submit</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="search" href="/search">
+                <IonIcon icon={searchOutline}></IonIcon>
+                <IonLabel>Search</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="account" href="/account">
+                <IonIcon icon={personOutline}></IonIcon>
+                <IonLabel>Account</IonLabel>
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+        </UserContext.Provider>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;

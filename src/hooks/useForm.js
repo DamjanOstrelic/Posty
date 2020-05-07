@@ -20,7 +20,8 @@ function useForm(initialState, validate, action) {
         setSubmitting(false);
       }
     }
-  }, [errors, action, isSubmitting, initialState]);
+    //eslint-disable-next-line
+  }, [errors]);
 
   function handleChange(event) {
     setValues((previousValues) => ({
