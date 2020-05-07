@@ -10,7 +10,7 @@ import {
   IonIcon,
 } from "@ionic/react";
 import {
-  sendOutline,
+  newspaperOutline,
   trendingUpOutline,
   addCircleOutline,
   searchOutline,
@@ -23,6 +23,10 @@ import Trending from "./pages/Tabs/Trending";
 import Submit from "./pages/Tabs/Submit";
 import Search from "./pages/Tabs/Search";
 import Account from "./pages/Tabs/Account";
+import EditProfile from "./pages/EditProfile";
+import SignUp from "./pages/SignUp";
+import ForgotPassword from "./pages/ForgotPassword";
+import Login from "./pages/Login";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -53,7 +57,8 @@ const App = () => (
             render={() => <Redirect to="/posts" />}
             exact={true}
           />
-          <Route path="/posts" component={Posts} />
+          <Route path="/posts" component={Posts} />{" "}
+          {/*path means how it will appear in URL and component to which component it links to*/}
           <Route path="/trending" component={Trending} />
           <Route path="/submit" component={Submit} />
           <Route path="/search" component={Search} />
@@ -63,7 +68,7 @@ const App = () => (
         {/*-- Tab bar --*/}
         <IonTabBar slot="bottom">
           <IonTabButton tab="posts" href="/posts">
-            <IonIcon icon={sendOutline}></IonIcon>
+            <IonIcon icon={newspaperOutline}></IonIcon>
             <IonLabel>Posts</IonLabel>
           </IonTabButton>
           <IonTabButton tab="trending" href="/trending">
