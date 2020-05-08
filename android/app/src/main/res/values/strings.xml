@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Posty</string>
+    <string name="title_activity_main">Posty</string>
+    <string name="package_name">com.posty</string>
+    <string name="custom_url_scheme">com.posty</string>
+</resources>
