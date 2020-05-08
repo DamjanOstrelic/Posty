@@ -2,7 +2,14 @@ import React from "react";
 import firebase from "../firebase";
 import { Plugins } from "@capacitor/core";
 import UserContext from "../contexts/userContext";
-import { IonPage, IonContent, IonGrid, IonCol, IonRow } from "@ionic/react";
+import {
+  IonPage,
+  IonContent,
+  IonGrid,
+  IonCol,
+  IonRow,
+  IonButton,
+} from "@ionic/react";
 import NavHeader from "../components/headers/NavHeader";
 import { closeCircleOutline } from "ionicons/icons";
 import LinkItem from "../components/Links/LinkItem";
@@ -25,6 +32,26 @@ const Link = (props) => {
     });
   }
 
+  function handleAddVote() {
+    if (!user) {
+      props.history.push("/login");
+    } else {
+      linkRef.get().then((doc) => {
+        if (doc.exists) {
+          const previousVotes = doc.data().votes;
+          const vote = { votedBy: { id: user.uid, name: user.displayName } };
+          const updatedVotes = [...previousVotes, vote];
+          const voteCount = updatedVotes.length;
+          linkRef.update({ votes: updatedVotes, voteCount });
+          setLink((prevState) => ({
+            ...prevState,
+            votes: updatedVotes,
+            voteCount: voteCount,
+          }));
+        }
+      });
+    }
+  }
   function handleDeleteLink() {
     linkRef
       .delete()
@@ -59,8 +86,11 @@ const Link = (props) => {
           <>
             <IonGrid>
               <IonRow>
-                <IonCol>
+                <IonCol class="ion-text-center">
                   <LinkItem link={link} browser={openBrowser}></LinkItem>
+                  <IonButton onClick={handleAddVote} size="small">
+                    Upvote
+                  </IonButton>
                 </IonCol>
               </IonRow>
             </IonGrid>
