@@ -19,9 +19,9 @@ import {
 import { getHostName } from "../../helpers/domain";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
-const LinkItem = ({ url, index, showCount, link }) => {
+const LinkItem = ({ url, index, showCount, link, browser }) => {
   return (
-    <IonCard routerLink={url} button>
+    <IonCard routerLink={url} onClick={browser} button>
       <IonCardContent class="ion-no-padding">
         <IonList lines="none">
           <IonItem>

@@ -19,6 +19,7 @@ import {
 
 import { IonReactRouter } from "@ionic/react-router";
 import Posts from "./pages/Tabs/Posts";
+import Link from "./pages/Link";
 import Trending from "./pages/Tabs/Trending";
 import Submit from "./pages/Tabs/Submit";
 import Search from "./pages/Tabs/Search";
@@ -68,6 +69,7 @@ const App = () => {
               <Route path="/trending" component={Trending} />
               <Route path="/submit" component={Submit} />
               <Route path="/search" component={Search} />
+              <Route path="/link/:linkId" component={Link} />
               <Route path="/account" component={Account} />
               <Route path="/edit-profile" component={EditProfile} />
               <Route path="/register" component={SignUp} />
